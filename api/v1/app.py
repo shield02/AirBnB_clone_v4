@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Application Core """
+""" Core that will run the application """
 from models import storage
 from api.v1.views import app_views
 from os import environ
@@ -28,8 +28,16 @@ def not_found(error):
     return make_response(jsonify({"error": "Not found"}), 404)
 
 
+app.config['SWAGGER'] = {
+    'title': 'AirBnB clone Restful API',
+    'uiversion': 3
+}
+
+Swagger(app)
+
+
 if __name__ == "__main__":
-    """ Application """
+    """ Application flow """
     host = environ.get('HBNB_API_HOST')
     port = environ.get('HBNB_API_PORT')
     if not host:
