@@ -31,10 +31,6 @@ if __name__ == "__main__":
 
 @app.errorhandler(404)
 def not_found(error):
-    """ 404 Error
-    ---
-    responses:
-      404:
-        description: a resource was not found
+    """ 404 Error Response
     """
-    return make_response(jsonify({'error': "Not found"}), 404)
+    return make_response(jsonify({"error": "Not found"}), 404)
